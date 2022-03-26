@@ -28,8 +28,17 @@
       -->
       <div class="menu__mobile" id="mobile-menu"></div>
       <div class="menu__items-list">
+        <!--
+            Нужно исправить: В этом блоке элементы не выровнены по горизонтали относительно друг друга.
+            Можно лучше: лучше использовать одинаковые html элементы для пунктов меню (например, <a>) -
+            разметка будет читаться легче и выглядеть более структурировано.
+          -->
         <a href="./" class="menu__link menu__link_selected">Главная</a>
         <div class="menu__items-single-item">
+          <!--
+            Нужно исправить: опечатка в названии класса - нужно поправить menu__link--logged -> menu__link_logged:
+            это решит проблему с отображением.
+          -->
             <span class="menu__link menu__link--logged">Юзер
               <span class="menu__logout"></span>
             </span>
@@ -38,11 +47,21 @@
     </div>
     <div class="header__title-wrapper">
       <h1 class="header__title">Что в мире творится?</h1>
+      <!--
+        Можно лучше: тег <p> не слишком хорошо подходит для подзаголовка, т.к. он предназначен для абзаца.
+        Если требуется подзаголовок, лучше прибегнуть к тегам h2 - h6, в зависимости от
+        желаемого веса подзаголовка.
+      -->
       <p class="header__subtitle">
         <b>Находите самые свежие статьи на любую тему
           и сохраняйте в своём личном кабинете.</b>
       </p>
       <div class="header__form">
+        <!--
+          Можно лучше: header__form-input - кажется, по смыслу элемента больше подходит search вместо
+          form-input - по мере развития страницы могут добавляться другие инпуты, что осложнит читабельность
+          названий классов. То же с header__button -> search-button.
+        -->
         <input class="header__form-input" type="text" name="search" placeholder="Введите тему новости" required/>
         <span class="button header__button">Искать</span>
       </div>
@@ -64,11 +83,24 @@
     <div class="results__news">
       <a href="#" class="card">
         <div class="card__body">
+          <!--
+              Нужно исправить: card_image-wrapper, card_date, card_title, card_text -> card__image-wrapper, card__date,
+              card__title, card__text - в соответствии с именованием по БЭМ - здесь блок - card, элементы -
+              image-wrapper, date, title и text. Более подробно об именовании можно прочитать здесь:
+              https://ru.bem.info/methodology/naming-convention/
+            -->
           <div class="card_image-wrapper">
+            <!--
+              Нужно исправить: card_img -> card__image
+            -->
             <div class="card_img"></div>
           </div>
           <div class="card__icon"></div>
           <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+            <!--
+              Нужно исправить: card_wrapper -> card__wrapper, а еще лучше - card__content-wrapper. Здесь и ниже,
+              в других карточках.
+            -->
           <div class="card_wrapper">
             <!-- Пример замечания:
               Можно лучше: для дат существует специальный тег <time>.
@@ -95,8 +127,13 @@
           <div class="card_image-wrapper">
             <div class="card_img"></div>
           </div>
+          <!--
+            Нужно исправить: в классе card__icon ломается верстка - иконка наплывает на дату и заголовок карточки.
+            Например, можно отказаться от position: absolute.
+          -->
           <div class="card__icon"></div>
           <p class="card__warning">Войдите, чтобы сохранять статьи</p>
+
           <div class="card_wrapper">
             <p class="card_date">2 августа, 2019</p>
             <h4 class="card_title">Why do we use it?</h4>
@@ -154,8 +191,16 @@
         <p class="card_src">lipsum.com</p>
       </a>
     </div>
+    <!--
+      Нужно исправить: button results__button записан не по БЭМ. Можно сделать например, так:
+      если кнопка не относится напрямую к блоку results, можно оставить только button button_show-more.
+    -->
     <button class="button results__button">Показать еще</button>
   </main>
+    <!--
+      Нужно исправить: about results__about записан не по БЭМ. Можно оставить, к примеру, только about,
+      т.к. этот блок более нигде на странице не повторяется.
+    -->
   <section class="about results__about">
       <h3 class="about__title">Об авторе</h3>
       <div class="about__text">
@@ -190,6 +235,21 @@
 </div>
 <div id="modal">
   <section class="auth-form__wrapper_hide" id="login-form">
+    <!--
+      Можно лучше:
+      - хочется добавить отступ слева и справа в поля логина и пароля - верстка будет смотрется
+        аккуратее и более завершенной
+      - хочется заменить обрашение к пользователю в случае ошибки на вариант без восклицательных знаков -
+        это может выглядеть как "команда" или "приказ" и ухудшает пользовательский опыт.
+    -->
+    <!--
+      Нужно исправить:
+      - в форме есть элементы, которые не выровнены "лесенкой" - это ухудшает восприятие файла и
+        выглядит не совсем аккуратно. Можно использовать редактор, который автоматически корректно
+        располагает элементы или использовать сторонние библиотеки для "причесывания" внешнего вида
+        кода.
+      - Неправильный логин или пароль хочется выровнять по левому краю, также, как и остальные ошибки.
+    -->
     <form class="auth-form">
       <div class="auth-form__close" id="close-login-form"></div>
       <h4 class="auth-form__title">Вход</h4>
